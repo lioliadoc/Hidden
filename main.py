@@ -1,6 +1,12 @@
 def hidden(matrix, n):
-    # Your implementation here!
-    pass
+    message = ''
+    i = 0
+    for row in matrix:
+        for string in row:
+            if i%n == 0:
+                message += string
+            i+=1
+    return message
 
 matrix_1 = (
     ('u','e','r','e', ' ', 'e'),
@@ -11,7 +17,10 @@ matrix_1 = (
     ('y', 'e'),
     ('u', 'a', 'u', 't')
 )
-assert hidden(matrix_1, 2) == 'ur doing great'
+actual = hidden(matrix_1, 2)
+expected = 'ur doing great'
+assert actual == expected, f" {actual }  not equal { expected}"
+
 assert hidden(matrix_1, 3) == 'uedbnqgya'
 assert hidden(matrix_1, 525600) == 'u'
 assert hidden(matrix_1, 1) == 'uere edzobivnwgq 5gwryeuaut'
